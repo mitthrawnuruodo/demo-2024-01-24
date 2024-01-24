@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM parser test</title>
+</head>
+<body>
+    
+<script>
+const template = `
+  <header>
+    <nav> 
+        <ul>
+            <li>Menu item 1</li>
+            <li>Menu item 2</li>
+        </ul>
+    </nav>
+    <h1 id="title">Page Title</h1>
+  </header>
+`;
+const parser = new DOMParser();
+const parsedDocument = parser.parseFromString(template, "text/html");
+const domObjects = parsedDocument.body.firstChild;
+console.log(domObjects);
+document.body.append(domObjects);  
+
+// Add one more menu item
+const navUl = document.querySelector("nav ul");
+navUl.innerHTML += `<li>Menu item 3</li>`;
+</script>    
+</body>
+</html>

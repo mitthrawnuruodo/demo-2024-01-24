@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display banner</title>
+    <style>
+        header, footer {
+            padding: 20px; 
+            color: white;
+            background-color: black;
+        }
+        .message {
+            border: 1px solid blue;
+            color: blue; 
+            background-color: rgba(0, 0, 255, 0.1);
+            padding: 10px; 
+            margin: 0 0 10px 0;
+        }
+        .warning {
+            border: 1px solid darkorange;
+            color: darkorange; 
+            background-color: rgba(255, 255, 0, 0.1);            
+        }
+        .error {
+            border: 1px solid darkred;
+            color: darkred; 
+            background-color: rgba(255, 0, 0, 0.1);            
+        }
+        .ok {
+            border: 1px solid darkgreen;
+            color: darkgreen; 
+            background-color: rgba(0, 255, 0, 0.1);            
+        }
+    </style>
+</head>
+<body>
+    <header>Header, with menu and stuff™</header>
+    <h1>Nice static content</h1>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab in aliquam neque voluptatum quasi vero eligendi blanditiis? Natus nulla laboriosam odio consectetur labore exercitationem temporibus, dolores ratione ullam, ad commodi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus impedit, dignissimos, a dolore, praesentium quibusdam culpa similique eos minima inventore officiis deleniti temporibus? Eos fuga distinctio error accusantium nisi sint?</p>
+    <h2>And a sub header</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad illum vel minima nemo id hic error, harum nisi ea perferendis dolor architecto eaque autem debitis facere aperiam assumenda! A, deserunt.</p>
+    <footer>Footer, with more stuff™</footer>
+<script>
+const displayBanner = (message = "No message!", className) => {
+    let banner = document.createElement("div");
+    banner.classList.add("message"); 
+
+    // if (className) banner.classList.add(className);
+    if (className === "ok" || className === "warning" || className === "error") { 
+        banner.classList.add(className);
+    }
+
+    let textNode = document.createTextNode(message);
+    banner.appendChild(textNode);
+
+    //console.log (banner);
+
+    var firstNode = document.body.childNodes[0];
+    console.log (firstNode);
+    document.body.insertBefore(banner, firstNode);
+}
+
+// displayBanner();
+//displayBanner("Danger, Will Robinson!", "warning");
+//displayBanner("Something's wrong!", "error");
+//displayBanner("Everything's peachy...", "ok");
+</script>
+</body>
+</html>
