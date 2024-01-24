@@ -43,26 +43,41 @@
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad illum vel minima nemo id hic error, harum nisi ea perferendis dolor architecto eaque autem debitis facere aperiam assumenda! A, deserunt.</p>
     <footer>Footer, with more stuff™</footer>
 <script>
+/*
+ * Making a function to display a banner on top of the webpage
+ * 
+ * @param {string} message - the message displayed in the banner
+ * @param {string} className - the (optional) class added to the banner (ok, warning, error)
+ */
 const displayBanner = (message = "No message!", className) => {
+
+    // Create a div element to be displayed as banner
     let banner = document.createElement("div");
+    // Add the message class (which all banners must habe)
     banner.classList.add("message"); 
 
+    // Check if banner is truthy, before adding a class based on classname (improved under)
     // if (className) banner.classList.add(className);
+
+    // Check if className is set to one of the allowed class names, and only then add class
     if (className === "ok" || className === "warning" || className === "error") { 
         banner.classList.add(className);
     }
 
+    // Make a text node using the message parameter
     let textNode = document.createTextNode(message);
+    // Add the text node to the banner element
     banner.appendChild(textNode);
-
     //console.log (banner);
 
+    // Find the fist HTML element in the document
     var firstNode = document.body.childNodes[0];
-    console.log (firstNode);
+    // Inser the banner before the first element (on top of the page)
     document.body.insertBefore(banner, firstNode);
 }
 
-// displayBanner();
+// Call the banner you want to diplay (by un-commenting the line(s) under):
+//displayBanner();
 //displayBanner("Danger, Will Robinson!", "warning");
 //displayBanner("Something's wrong!", "error");
 //displayBanner("Everything's peachy...", "ok");

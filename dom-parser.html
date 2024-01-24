@@ -19,14 +19,20 @@ const template = `
     <h1 id="title">Page Title</h1>
   </header>
 `;
+
+// Create a parser
 const parser = new DOMParser();
+// Make a HTML document by parsing the template-string
 const parsedDocument = parser.parseFromString(template, "text/html");
+// Get the header DOM object node from the parsed document
 const domObjects = parsedDocument.body.firstChild;
-console.log(domObjects);
+//console.log(domObjects);
+// Append the DOM objects to the body of your document
 document.body.append(domObjects);  
 
-// Add one more menu item
+// Getting the newly inserted nav ul
 const navUl = document.querySelector("nav ul");
+// And add another list element using innerHTML
 navUl.innerHTML += `<li>Menu item 3</li>`;
 </script>    
 </body>
