@@ -9,6 +9,7 @@
     
 <script>
 // Make a HTML template string (may contain ${expressions})
+const pageTitle = "Page Title via expression"
 const template = `
   <header>
     <nav> 
@@ -17,7 +18,7 @@ const template = `
             <li>Menu item 2</li>
         </ul>
     </nav>
-    <h1 id="title">Page Title</h1>
+    <h1 id="title">${pageTitle}</h1>
   </header>
 `;
 
